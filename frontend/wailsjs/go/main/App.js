@@ -6,6 +6,30 @@ export function CreateBill(arg1) {
   return window['go']['main']['App']['CreateBill'](arg1);
 }
 
+export function CreateCategory(arg1) {
+  return window['go']['main']['App']['CreateCategory'](arg1);
+}
+
+export function CreateMerchant(arg1) {
+  return window['go']['main']['App']['CreateMerchant'](arg1);
+}
+
+export function CreateTag(arg1) {
+  return window['go']['main']['App']['CreateTag'](arg1);
+}
+
+export function DeleteCategory(arg1) {
+  return window['go']['main']['App']['DeleteCategory'](arg1);
+}
+
+export function DeleteMerchant(arg1) {
+  return window['go']['main']['App']['DeleteMerchant'](arg1);
+}
+
+export function DeleteTag(arg1) {
+  return window['go']['main']['App']['DeleteTag'](arg1);
+}
+
 export function ExportData(arg1) {
   return window['go']['main']['App']['ExportData'](arg1);
 }
@@ -54,6 +78,22 @@ export function GetVerify() {
   return window['go']['main']['App']['GetVerify']();
 }
 
+export function ListCategories(arg1) {
+  return window['go']['main']['App']['ListCategories'](arg1);
+}
+
+export function ListMerchants(arg1) {
+  return window['go']['main']['App']['ListMerchants'](arg1);
+}
+
+export function ListTags(arg1) {
+  return window['go']['main']['App']['ListTags'](arg1);
+}
+
+export function MergeTags(arg1) {
+  return window['go']['main']['App']['MergeTags'](arg1);
+}
+
 export function OpenPath(arg1) {
   return window['go']['main']['App']['OpenPath'](arg1);
 }
@@ -72,6 +112,18 @@ export function RunLocalBackup(arg1) {
 
 export function RunReport(arg1) {
   return window['go']['main']['App']['RunReport'](arg1);
+}
+
+export function SetCategoryActive(arg1, arg2) {
+  return window['go']['main']['App']['SetCategoryActive'](arg1, arg2);
+}
+
+export function SetMerchantActive(arg1, arg2) {
+  return window['go']['main']['App']['SetMerchantActive'](arg1, arg2);
+}
+
+export function SetTagActive(arg1, arg2) {
+  return window['go']['main']['App']['SetTagActive'](arg1, arg2);
 }
 
 export function SoftDeleteBill(arg1) {
@@ -94,6 +146,18 @@ export function UpdateBillTags(arg1, arg2) {
   return window['go']['main']['App']['UpdateBillTags'](arg1, arg2);
 }
 
+export function UpdateCategory(arg1) {
+  return window['go']['main']['App']['UpdateCategory'](arg1);
+}
+
 export function UpdateConfig(arg1) {
   return window['go']['main']['App']['UpdateConfig'](arg1);
+}
+
+export function UpdateMerchant(arg1) {
+  return window['go']['main']['App']['UpdateMerchant'](arg1);
+}
+
+export function UpdateTag(arg1) {
+  return window['go']['main']['App']['UpdateTag'](arg1);
 }

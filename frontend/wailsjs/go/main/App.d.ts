@@ -4,6 +4,18 @@ import {main} from '../models';
 
 export function CreateBill(arg1:main.CreateBillInput):Promise<main.BillDetail>;
 
+export function CreateCategory(arg1:main.CategoryInput):Promise<void>;
+
+export function CreateMerchant(arg1:main.MerchantInput):Promise<void>;
+
+export function CreateTag(arg1:main.TagInput):Promise<void>;
+
+export function DeleteCategory(arg1:number):Promise<void>;
+
+export function DeleteMerchant(arg1:number):Promise<void>;
+
+export function DeleteTag(arg1:number):Promise<void>;
+
 export function ExportData(arg1:string):Promise<string>;
 
 export function GetAllTags():Promise<Array<main.TagItem>>;
@@ -28,6 +40,14 @@ export function GetMonthlySummary(arg1:string):Promise<string>;
 
 export function GetVerify():Promise<string>;
 
+export function ListCategories(arg1:boolean):Promise<Array<main.CategoryNode>>;
+
+export function ListMerchants(arg1:boolean):Promise<Array<main.MerchantItem>>;
+
+export function ListTags(arg1:boolean):Promise<Array<main.TagItem>>;
+
+export function MergeTags(arg1:main.MergeTagsInput):Promise<void>;
+
 export function OpenPath(arg1:string):Promise<void>;
 
 export function RestoreBill(arg1:number):Promise<void>;
@@ -37,6 +57,12 @@ export function RunGitHubBackup(arg1:string):Promise<string>;
 export function RunLocalBackup(arg1:string):Promise<string>;
 
 export function RunReport(arg1:string):Promise<string>;
+
+export function SetCategoryActive(arg1:number,arg2:boolean):Promise<void>;
+
+export function SetMerchantActive(arg1:number,arg2:boolean):Promise<void>;
+
+export function SetTagActive(arg1:number,arg2:boolean):Promise<void>;
 
 export function SoftDeleteBill(arg1:number):Promise<void>;
 
@@ -48,4 +74,10 @@ export function UpdateBillNote(arg1:number,arg2:string):Promise<void>;
 
 export function UpdateBillTags(arg1:number,arg2:Array<string>):Promise<void>;
 
+export function UpdateCategory(arg1:main.UpdateCategoryInput):Promise<void>;
+
 export function UpdateConfig(arg1:main.AppConfig):Promise<void>;
+
+export function UpdateMerchant(arg1:main.UpdateMerchantInput):Promise<void>;
+
+export function UpdateTag(arg1:main.UpdateTagInput):Promise<void>;

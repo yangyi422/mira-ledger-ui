@@ -90,10 +90,37 @@ export namespace main {
 	        this.display_subtitle = source["display_subtitle"];
 	    }
 	}
-	export class CategoryNode {
-	    id: number;
+	export class CategoryInput {
+	    parent_id: number;
 	    name: string;
 	    type: string;
+	    sort_order: number;
+	    icon_key: string;
+	
+	    static createFrom(source: any = {}) {
+	        return new CategoryInput(source);
+	    }
+	
+	    constructor(source: any = {}) {
+	        if ('string' === typeof source) source = JSON.parse(source);
+	        this.parent_id = source["parent_id"];
+	        this.name = source["name"];
+	        this.type = source["type"];
+	        this.sort_order = source["sort_order"];
+	        this.icon_key = source["icon_key"];
+	    }
+	}
+	export class CategoryNode {
+	    id: number;
+	    parent_id: number;
+	    name: string;
+	    type: string;
+	    taxonomy_version: string;
+	    sort_order: number;
+	    is_active: boolean;
+	    icon_key: string;
+	    bill_count: number;
+	    last_used_at: string;
 	    children: CategoryNode[];
 	
 	    static createFrom(source: any = {}) {
@@ -103,8 +130,15 @@ export namespace main {
 	    constructor(source: any = {}) {
 	        if ('string' === typeof source) source = JSON.parse(source);
 	        this.id = source["id"];
+	        this.parent_id = source["parent_id"];
 	        this.name = source["name"];
 	        this.type = source["type"];
+	        this.taxonomy_version = source["taxonomy_version"];
+	        this.sort_order = source["sort_order"];
+	        this.is_active = source["is_active"];
+	        this.icon_key = source["icon_key"];
+	        this.bill_count = source["bill_count"];
+	        this.last_used_at = source["last_used_at"];
 	        this.children = this.convertValues(source["children"], CategoryNode);
 	    }
 	
@@ -212,10 +246,82 @@ export namespace main {
 	        this.last_backup_time = source["last_backup_time"];
 	    }
 	}
+	export class MerchantInput {
+	    name: string;
+	    sort_order: number;
+	
+	    static createFrom(source: any = {}) {
+	        return new MerchantInput(source);
+	    }
+	
+	    constructor(source: any = {}) {
+	        if ('string' === typeof source) source = JSON.parse(source);
+	        this.name = source["name"];
+	        this.sort_order = source["sort_order"];
+	    }
+	}
+	export class MerchantItem {
+	    id: number;
+	    name: string;
+	    sort_order: number;
+	    is_active: boolean;
+	    use_count: number;
+	    total_amount: number;
+	    last_used_at: string;
+	
+	    static createFrom(source: any = {}) {
+	        return new MerchantItem(source);
+	    }
+	
+	    constructor(source: any = {}) {
+	        if ('string' === typeof source) source = JSON.parse(source);
+	        this.id = source["id"];
+	        this.name = source["name"];
+	        this.sort_order = source["sort_order"];
+	        this.is_active = source["is_active"];
+	        this.use_count = source["use_count"];
+	        this.total_amount = source["total_amount"];
+	        this.last_used_at = source["last_used_at"];
+	    }
+	}
+	export class MergeTagsInput {
+	    source_id: number;
+	    target_id: number;
+	
+	    static createFrom(source: any = {}) {
+	        return new MergeTagsInput(source);
+	    }
+	
+	    constructor(source: any = {}) {
+	        if ('string' === typeof source) source = JSON.parse(source);
+	        this.source_id = source["source_id"];
+	        this.target_id = source["target_id"];
+	    }
+	}
+	export class TagInput {
+	    name: string;
+	    group_name: string;
+	    sort_order: number;
+	
+	    static createFrom(source: any = {}) {
+	        return new TagInput(source);
+	    }
+	
+	    constructor(source: any = {}) {
+	        if ('string' === typeof source) source = JSON.parse(source);
+	        this.name = source["name"];
+	        this.group_name = source["group_name"];
+	        this.sort_order = source["sort_order"];
+	    }
+	}
 	export class TagItem {
 	    id: number;
 	    name: string;
 	    group_name: string;
+	    sort_order: number;
+	    is_active: boolean;
+	    use_count: number;
+	    last_used_at: string;
 	
 	    static createFrom(source: any = {}) {
 	        return new TagItem(source);
@@ -226,6 +332,10 @@ export namespace main {
 	        this.id = source["id"];
 	        this.name = source["name"];
 	        this.group_name = source["group_name"];
+	        this.sort_order = source["sort_order"];
+	        this.is_active = source["is_active"];
+	        this.use_count = source["use_count"];
+	        this.last_used_at = source["last_used_at"];
 	    }
 	}
 	export class UpdateBillBasicInput {
@@ -246,6 +356,58 @@ export namespace main {
 	        this.type = source["type"];
 	        this.amount = source["amount"];
 	        this.merchant = source["merchant"];
+	    }
+	}
+	export class UpdateCategoryInput {
+	    id: number;
+	    name: string;
+	    sort_order: number;
+	    icon_key: string;
+	
+	    static createFrom(source: any = {}) {
+	        return new UpdateCategoryInput(source);
+	    }
+	
+	    constructor(source: any = {}) {
+	        if ('string' === typeof source) source = JSON.parse(source);
+	        this.id = source["id"];
+	        this.name = source["name"];
+	        this.sort_order = source["sort_order"];
+	        this.icon_key = source["icon_key"];
+	    }
+	}
+	export class UpdateMerchantInput {
+	    id: number;
+	    name: string;
+	    sort_order: number;
+	
+	    static createFrom(source: any = {}) {
+	        return new UpdateMerchantInput(source);
+	    }
+	
+	    constructor(source: any = {}) {
+	        if ('string' === typeof source) source = JSON.parse(source);
+	        this.id = source["id"];
+	        this.name = source["name"];
+	        this.sort_order = source["sort_order"];
+	    }
+	}
+	export class UpdateTagInput {
+	    id: number;
+	    name: string;
+	    group_name: string;
+	    sort_order: number;
+	
+	    static createFrom(source: any = {}) {
+	        return new UpdateTagInput(source);
+	    }
+	
+	    constructor(source: any = {}) {
+	        if ('string' === typeof source) source = JSON.parse(source);
+	        this.id = source["id"];
+	        this.name = source["name"];
+	        this.group_name = source["group_name"];
+	        this.sort_order = source["sort_order"];
 	    }
 	}
 
